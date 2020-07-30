@@ -9,7 +9,7 @@ import os
 
 def create_dataset():
     base_path = 'data'
-    image_size = 128
+    image_size = 150
     labels = [0,1]
 
     X = []
@@ -30,13 +30,15 @@ def create_dataset():
             img = cv2.imread(os.path.join(image_path, img_file))
 
             # convert the image to gray scale
-            #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
             # resize the image
             img = cv2.resize(img, (image_size, image_size))
 
             # convert in numpy array
             img_arr = np.asarray(img)
+
+            img_arr = np.reshape(img_arr, (image_size, image_size, 1))
             
             X.append(img_arr)
             Y.append(label)
