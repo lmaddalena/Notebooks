@@ -1,3 +1,4 @@
 .vscode/
 [Ll]ogs/
 data/mask_data.h5
+MNIST_data/
